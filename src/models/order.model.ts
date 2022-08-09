@@ -86,7 +86,6 @@ export class order {
             const result_product = await db.query(sql_command_products);
             const sql_command_get_products = `SELECT * FROM ordersproducts WHERE order_id=${result.rows[0].id};`
             const result_get_product = await db.query(sql_command_get_products);
-            console.log(result_get_product.rows)
             db.release();
             const ordersWithProduct : iOrder = {
                 orderProduct: result_get_product.rows,
@@ -115,7 +114,9 @@ export class order {
     async delete(id:number): Promise<iOrder> {
       try {
         const db = await db_client.connect();
-        const sql_command = `DELETE FROM orders WHERE id=${id}`;
+        const sql_command_products= `DELETE FROM ordersproducts WHERE order_id=${id}`;
+        const result_product = await db.query(sql_command_products);
+        const sql_command = `DELETE FROM orders WHERE id=${id} RETURNING *`;
         const result = await db.query(sql_command);
         db.release();
         return result.rows[0];
