@@ -75,11 +75,11 @@ describe("product API", (): void => {
     expect(response.statusCode).toBe(200);
   });
   it("get all product", async (): Promise<void> => {
-    const response = await request.get("/product").set("Authorization", bearer + token );
+    const response = await request.get("/product");
     expect(response.statusCode).toBe(200);
   });
   it("get product", async (): Promise<void> => {
-    const response = await request.get("/product/1").set("Authorization", bearer + token );
+    const response = await request.get("/product/1");
     expect(response.statusCode).toBe(200);
   });
 });

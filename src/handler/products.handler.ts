@@ -75,8 +75,8 @@ const deleted = async (_req: Request, _res: Response) => {
 };
 
 export const productRoute = (app: Express.Application) => {
-  app.get("/product", verifyAuthToken, index);
-  app.get("/product/:id", verifyAuthToken, show);
+  app.get("/product", index);
+  app.get("/product/:id", show);
   app.post("/product", verifyAuthToken, create);
   app.put("/product/:id", verifyAuthToken, update);
   app.delete("/product/:id", verifyAuthToken, deleted);

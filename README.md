@@ -59,8 +59,8 @@ category API:
 -  delete /category/:id (TOKEN REQUIRED)
 
 product API:
--  get /product         (TOKEN REQUIRED)
--  get /product/:id     (TOKEN REQUIRED)
+-  get /product         
+-  get /product/:id     
 -  post /product        (TOKEN REQUIRED)
     {
         name,
