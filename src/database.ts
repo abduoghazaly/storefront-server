@@ -6,7 +6,7 @@ dotenv.config()
  const { DB_URL ,
  DB_NAME ,
  DB_USER ,
- DB_PASSWORD,DB_NAME_TEST ,ENV} = process.env
+ DB_PASSWORD,DB_NAME_TEST,DB_PORT ,ENV} = process.env
 
 let db_client = new Pool()
 
@@ -15,7 +15,8 @@ if(ENV === 'test') {
         host: DB_URL,
         database:DB_NAME_TEST,
         user:DB_USER,
-        password: DB_PASSWORD
+        password: DB_PASSWORD,
+        port:+(DB_PORT as string)
     })
 }
 
@@ -25,7 +26,8 @@ if(ENV === 'dev') {
         host: DB_URL,
         database:DB_NAME,
         user:DB_USER,
-        password: DB_PASSWORD
+        password: DB_PASSWORD,
+        port:+(DB_PORT as string)
     })
 }
 

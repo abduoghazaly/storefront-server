@@ -7,10 +7,16 @@ with Express and Postgres.
 ## usage 
 
 - install postgres.
-- create database in postgres.
-- change .env file with your custome configration.
+    - via [postgres](https://www.postgresql.org/download/)
+    - postgras will run at: 'localhost' with port '5432'
+- create database user. (psql terminal)
+    - CREATE USER postgres WITH PASSWORD '2323';
+- create database in postgres. (psql terminal)
+    - CREATE DATABASE  storefront;
+- change .env file with your custome configration. (OPTIONAL)
 - run `npm install` to install and update all package.
-- by defult server will run at : `0.0.0.0:3000`.
+- to start server run: `npm run watch`.
+- by defult server will run at : `localhost:3000`.
 - use [API](#api).
 
 ## API
@@ -117,8 +123,11 @@ DB_URL = 'localhost'
 DB_NAME = 'storefront'
 DB_USER = 'postgres'
 DB_PASSWORD = '2323'
+DB_PORT = '3001'
 
 DB_NAME_TEST = 'storefront_test'
+
+SERVER_PORT = '3000'
 
 SALT_ROUNDS = 10
 BCRYPT_PASSWORD = 'FWD-DA-BEST'
